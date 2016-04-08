@@ -5,7 +5,7 @@ App.UserModel = DS.Model.extend({
     username: DS.attr('string'),
     email: DS.attr('string'),
     contactInformations: DS.belongsTo('contact-information', {
-        async: true,
+        async: false,
         inverse: null
     })
 });

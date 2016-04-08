@@ -5,4 +5,7 @@
     <ul>
         <li>{{user.email}}</li>
     </ul>
+    {{#each contactInformations as |infos|}}
+        {{infos}}
+    {{/each}}
 {{/each}}
