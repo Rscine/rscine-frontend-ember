@@ -1,11 +1,8 @@
-<h1>Users:</h1>
+<div>
+    This app is currently in development so be patient, we will soon have a beta coming !
+</div>
 
-{{#each model as |user|}}
-    <h2>{{user.username}}</h2>
-    <ul>
-        <li>{{user.email}}</li>
-    </ul>
-    {{#each contactInformations as |infos|}}
-        {{infos}}
-    {{/each}}
-{{/each}}
+<ul>
+    <li>{{#link-to "offers"}}View available offers{{/link-to}}</li>
+</ul>
+
