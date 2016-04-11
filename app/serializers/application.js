@@ -9,11 +9,6 @@ App.ApplicationSerializer =  DS.RESTSerializer.extend({
     normalizeArrayResponse (store, primaryModelClass, payload, id, requestType) {
         let normalizedPayload = {};
         normalizedPayload[primaryModelClass.modelName] = payload;
-        // extraction des relations embedded
-        normalizedPayload[primaryModelClass.modelName] = this._extractArrayEmbeddedRelationships(normalizedPayload[primaryModelClass.modelName]);
-        // extraction des relations _links
-        normalizedPayload[primaryModelClass.modelName]  = this._extractArrayLinkedRelationships(normalizedPayload[primaryModelClass.modelName]);
-        console.log(normalizedPayload);
         return this._super(store, primaryModelClass, normalizedPayload, id, requestType);
     },
 
@@ -23,23 +18,20 @@ App.ApplicationSerializer =  DS.RESTSerializer.extend({
     normalizeSingleResponse (store, primaryModelClass, payload, id, requestType) {
         let normalizedPayload = {};
         normalizedPayload[primaryModelClass.modelName] = payload;
-        // extraction des relations embedded
-        normalizedPayload[primaryModelClass.modelName] = this._extractSingleEmbeddedRelationships(normalizedPayload[primaryModelClass.modelName]);
-        // extraction des relations _links
-        normalizedPayload[primaryModelClass.modelName]  = this._extractSingleLinkedRelationships(normalizedPayload[primaryModelClass.modelName] );
         return this._super(store, primaryModelClass, normalizedPayload, id, requestType);
     },
 
     /**
-     * @desc Extrait les relations ancrées dans _embedded dans le cas où originalPaylaod est un array (HATEOAS)
-     * @param  {Object} payload
-     * @return {Object}
+     * @{inheritdoc}
      */
-    _extractArrayEmbeddedRelationships (originalPayload) {
-        for (let resource of originalPayload) {
-            resource = this._extractSingleEmbeddedRelationships(resource);
-        }
-        return originalPayload;
+    extractRelationships (modelClass, resourceHash) {
+        let resource = {};
+        // extraction des relations embedded
+        resource = this._extractSingleEmbeddedRelationships(resourceHash);
+        // extraction des relations _links
+        resource = this._extractSingleLinkedRelationships(resourceHash);
+
+        return this._super(modelClass, resource);
     },
 
     /**
@@ -51,19 +43,8 @@ App.ApplicationSerializer =  DS.RESTSerializer.extend({
         for (let relationship in resource._embedded) {
             resource[relationship] = resource._embedded[relationship];
         }
-        return resource;
-    },
 
-    /**
-     * @desc Extrait les relations ancrées dans _links dans le cas où originalPayload est un array (HATEOAS)
-     * @param  {Object} originalPayload
-     * @return {Object}
-     */
-    _extractArrayLinkedRelationships (originalPayload) {
-        for (let resource of originalPayload) {
-            resource = this._extractSingleLinkedRelationships(resource);
-        }
-        return originalPayload;
+        return resource;
     },
 
     /**
