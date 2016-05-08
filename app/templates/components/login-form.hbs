@@ -1,0 +1,6 @@
+<form {{action 'authenticate' on="submit"}}>
+    {{paper-input label="login" type="text" name="login" value=(mut login)}}
+    {{paper-input label="password" type="password" name="password" value=(mut password)}}
+
+    {{ input type="submit" value="Log in" }}
+</form>

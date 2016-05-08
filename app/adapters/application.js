@@ -1,6 +1,8 @@
 import DS from 'ember-data';
+import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 
-export default DS.RESTAdapter.extend({
+export default DS.RESTAdapter.extend(DataAdapterMixin, {
     namespace: 'api/v1',
-    host: 'http://rscine.dev'
+    host: 'http://rscine.dev',
+    authorizer: 'authorizer:api'
 });
