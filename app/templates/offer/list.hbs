@@ -1,0 +1,53 @@
+<div class="ui stackable four column grid cards">
+    <div class="row">
+        <h2 class="ui header">
+            <i class="idea icon"></i>
+            <div class="content">
+                Offers
+                <div class="sub header">Check out our plug-in marketplace</div>
+            </div>
+        </h2>
+    </div>
+    <div class="row">
+        {{#link-to 'offer.new' class="ui green button"}}
+            <i class="plus icon"></i>
+            Create a new Offer
+        {{/link-to}}
+    </div>
+
+{{#each model as |offer|}}
+    <div class="column">
+        <div class="ui card">
+            <div class="content">
+                <div class="header">
+                    {{offer.name}}
+                </div>
+            </div>
+            <div class="content">
+
+                <p>{{offer.description}}</p>
+
+                <p>By <b>{{offer.creator.username}}</b></p>
+                <p>Currently doing it: <b>{{offer.handler.username}}</b></p>
+
+                <h4>Applicants:</h4>
+                    {{#each offer.applicants as |applicant|}}
+                    {{profile-avatar user=applicant}}
+                        <!-- <li>{{#link-to "user" applicant.id}}{{applicant.username}}{{/link-to}}</li> -->
+                    {{/each}}
+            </div>
+            <div class="extra content">
+                {{#ui-popup content="See more" dataVariation="inverted"}}
+                    <div class="ui left floated icon compact button">
+                        <i class="ellipsis horizontal icon"></i>
+                    </div>
+                {{/ui-popup}}
+                <div class="ui right floated labeled compact icon green button">
+                    <i class="right arrow icon"></i>
+                    Apply
+                </div>
+            </div>
+        </div>
+    </div>
+{{/each}}
+</div>

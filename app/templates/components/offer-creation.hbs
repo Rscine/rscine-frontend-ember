@@ -1,0 +1,11 @@
+<form class="ui form" {{action 'createOffer' on="submit"}}>
+    <div class="field">
+        <label for="title">Offer title</label>
+        {{input type="text" name="title" placeholder="Title" value=(mut title)}}
+    </div>
+    <div class="field">
+        <label for="description">Offer description</label>
+        {{textarea name="description" placeholder="Description" value=(mut description)}}
+    </div>
+    {{input type="submit" class="ui green button" value="Submit"}}
+</form>

@@ -1,1 +1,22 @@
-<h1>{{model.username}}</h1>
+<h1>{{model.username}} <small>{{model.email}}</small></h1>
+
+<h3>Addresses</h3>
+<ul>
+    {{#each model.contactInformation.addresses as |address|}}
+        <li>{{address.number}} {{address.street}}, {{address.postalCode}} {{address.district.name}}</li>
+    {{/each}}
+</ul>
+
+<h3>Emails</h3>
+<ul>
+    {{#each model.contactInformation.emails as |email|}}
+        <li>{{email.type}}: {{email.email}}</li>
+    {{/each}}
+</ul>
+
+<h3>Phones</h3>
+<ul>
+    {{#each model.contactInformation.phones as |phone|}}
+        <li>{{phone.type}}: {{phone.number}}</li>
+    {{/each}}
+</ul>

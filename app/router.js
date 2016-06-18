@@ -6,10 +6,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('offers', { path: '/offers' });
-  this.route('user', { path: '/user/:user' });
-  this.route('login');
-  this.route('profile');
+  this.route('offer', { path:'/offers' }, function() {
+      this.route('list', { path: '/list' });
+      this.route('new', { path:'/new' });
+  });
+  this.route('profile', { path:'/profile/:user' });
 });
 
 export default Router;

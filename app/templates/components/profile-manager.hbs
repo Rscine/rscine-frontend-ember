@@ -1,0 +1,13 @@
+{{#if session.isAuthenticated}}
+    {{#ui-dropdown class="simple dropdown item"}}
+        <i class="user icon"></i>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+            {{#link-to 'profile' class="item"}}<i class="setting icon"></i> Profile{{/link-to}}
+            <a {{action "logOut"}} class="item"><i class="power icon"></i> Log out</a>
+        </div>
+    {{/ui-dropdown}}
+{{else}}
+    <a href="#" id="log-in" class="icon item" {{action "logIn"}}><i class="user icon"></i></a>
+{{/if}}
+{{login-form}}
