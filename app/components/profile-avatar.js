@@ -9,6 +9,6 @@ export default Ember.Component.extend({
         this.$('.avatar.profile').popup({
             title: applicant.get('username'),
             content: applicant.get('username')
-        })
+        });
     }
 });
