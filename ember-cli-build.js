@@ -7,7 +7,7 @@ module.exports = function(defaults) {
     // Add options here
     outputPaths: {
         app: {
-            html: 'index/index.phtml'
+            html: 'index.html'
         }
     }
   });
