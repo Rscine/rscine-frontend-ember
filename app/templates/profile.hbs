@@ -1,83 +1,85 @@
-<div class="four wide column">
-    <div class="ui card">
-        <div class="image">
-            <img src="images/cormag.jpeg">
+<div class="ui grid">
+    <div class="four wide column">
+        <div class="ui card">
+            <div class="image">
+                <img src="images/cormag.jpeg">
+            </div>
+        </div>
+
+        <h1>{{model.username}}</h1>
+
+        <div class="ui divider"></div>
+
+        <div class="ui list">
+            {{!-- Adresses --}}
+            {{#each model.contactInformation.addresses as |address|}}
+                <div class="item">
+                    <i class="marker icon large middle aligned"></i>
+                    <div class="content">
+                        {{address.number}} {{address.street}}, {{address.postalCode}} {{address.district.name}}
+                    </div>
+                </div>
+            {{/each}}
+
+            {{!-- Emails --}}
+            {{#each model.contactInformation.emails as |email|}}
+                <div class="item">
+                    <i class="mail icon large middle aligned"></i>
+                    <div class="content">
+                        {{email.email}}
+                    </div>
+                </div>
+            {{/each}}
+
+            {{!-- Téléphones --}}
+            {{#each model.contactInformation.phones as |phone|}}
+                <div class="item">
+                    <i class="call icon large middle aligned"></i>
+                    <div class="content">
+                        {{phone.number}}
+                    </div>
+                </div>
+            {{/each}}
         </div>
     </div>
 
-    <h1>{{model.username}}</h1>
-
-    <div class="ui divider"></div>
-
-    <div class="ui list">
-        {{!-- Adresses --}}
-        {{#each model.contactInformation.addresses as |address|}}
-            <div class="item">
-                <i class="marker icon large middle aligned"></i>
-                <div class="content">
-                    {{address.number}} {{address.street}}, {{address.postalCode}} {{address.district.name}}
-                </div>
-            </div>
-        {{/each}}
-
-        {{!-- Emails --}}
-        {{#each model.contactInformation.emails as |email|}}
-            <div class="item">
-                <i class="mail icon large middle aligned"></i>
-                <div class="content">
-                    {{email.email}}
-                </div>
-            </div>
-        {{/each}}
-
-        {{!-- Téléphones --}}
-        {{#each model.contactInformation.phones as |phone|}}
-            <div class="item">
-                <i class="call icon large middle aligned"></i>
-                <div class="content">
-                    {{phone.number}}
-                </div>
-            </div>
-        {{/each}}
-    </div>
-</div>
-
-<div class="twelve wide column">
-    <div class="ui secondary pointing menu">
-        <a class="item active">
-            About
-        </a>
-        <a class="item">
-            Profile
-        </a>
-        <a class="item">
-            Showcase
-        </a>
-        <div class="right menu">
-            <div class="ui dropdown icon item">
-                <i class="wrench icon"></i>
-                <div class="menu">
-                    <div class="item">
-                        <i class="dropdown icon"></i>
-                        <span class="text">New</span>
-                        <div class="menu">
-                            <div class="item">Document</div>
-                            <div class="item">Image</div>
+    <div class="twelve wide column">
+        <div class="ui secondary pointing menu">
+            <a class="item active">
+                About
+            </a>
+            <a class="item">
+                Profile
+            </a>
+            <a class="item">
+                Showcase
+            </a>
+            <div class="right menu">
+                <div class="ui dropdown icon item">
+                    <i class="wrench icon"></i>
+                    <div class="menu">
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">New</span>
+                            <div class="menu">
+                                <div class="item">Document</div>
+                                <div class="item">Image</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        Open...
-                    </div>
-                    <div class="item">
-                        Save...
-                    </div>
-                    <div class="item">Edit Permissions</div>
-                    <div class="divider"></div>
-                    <div class="header">
-                        Export
-                    </div>
-                    <div class="item">
-                        Share...
+                        <div class="item">
+                            Open...
+                        </div>
+                        <div class="item">
+                            Save...
+                        </div>
+                        <div class="item">Edit Permissions</div>
+                        <div class="divider"></div>
+                        <div class="header">
+                            Export
+                        </div>
+                        <div class="item">
+                            Share...
+                        </div>
                     </div>
                 </div>
             </div>

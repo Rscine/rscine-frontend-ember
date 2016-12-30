@@ -15,39 +15,67 @@
         {{/link-to}}
     </div>
 
-{{#each model as |offer|}}
-    <div class="column">
-        <div class="ui card">
+    <div class="ui divided items">
+        {{#each model as |offer|}}
+        <div class="item column">
             <div class="content">
-                <div class="header">
-                    {{offer.name}}
+                <a class="header">{{offer.name}}</a>
+                <div class="meta">
+                    <span>{{offer.creator.username}}</span>
                 </div>
-            </div>
-            <div class="content">
+                <div class="description">
+                    <p>{{offer.description}}</p>
 
-                <p>{{offer.description}}</p>
-
-                <p>By <b>{{offer.creator.username}}</b></p>
-                <p>Currently doing it: <b>{{offer.handler.username}}</b></p>
-
-                <h4>Applicants:</h4>
-                    {{#each offer.applicants as |applicant|}}
-                    {{profile-avatar user=applicant}}
-                        <!-- <li>{{#link-to "user" applicant.id}}{{applicant.username}}{{/link-to}}</li> -->
-                    {{/each}}
-            </div>
-            <div class="extra content">
-                {{#ui-popup content="See more" dataVariation="inverted"}}
-                    <div class="ui left floated icon compact button">
-                        <i class="ellipsis horizontal icon"></i>
+                    <h4>Applicants:</h4>
+                        {{#each offer.applicants as |applicant|}}
+                        {{profile-avatar user=applicant}}
+                            <!-- <li>{{#link-to "user" applicant.id}}{{applicant.username}}{{/link-to}}</li> -->
+                        {{/each}}
+                </div>
+                <div class="extra">
+                    <div class="ui right floated primary button">
+                        More ...
+                        <i class="right chevron icon"></i>
                     </div>
-                {{/ui-popup}}
-                <div class="ui right floated labeled compact icon green button">
-                    <i class="right arrow icon"></i>
-                    Apply
+                <div class="ui label">Mission</div>
+                <div class="ui label">Easy difficulty</div>
                 </div>
             </div>
         </div>
+
+            {{!-- <div class="column">
+                <div class="ui card">
+                    <div class="content">
+                        <div class="header">
+                            {{offer.name}}
+                        </div>
+                    </div>
+                    <div class="content">
+
+                        <p>{{offer.description}}</p>
+
+                        <p>By <b>{{offer.creator.username}}</b></p>
+                        <p>Currently doing it: <b>{{offer.handler.username}}</b></p>
+
+                        <h4>Applicants:</h4>
+                            {{#each offer.applicants as |applicant|}}
+                            {{profile-avatar user=applicant}}
+                                <!-- <li>{{#link-to "user" applicant.id}}{{applicant.username}}{{/link-to}}</li> -->
+                            {{/each}}
+                    </div>
+                    <div class="extra content">
+                        {{#ui-popup content="See more" dataVariation="inverted"}}
+                            <div class="ui left floated icon compact button">
+                                <i class="ellipsis horizontal icon"></i>
+                            </div>
+                        {{/ui-popup}}
+                        <div class="ui right floated labeled compact icon green button">
+                            <i class="right arrow icon"></i>
+                            Apply
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+        {{/each}}
     </div>
-{{/each}}
 </div>
