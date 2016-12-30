@@ -8,6 +8,12 @@ export default Ember.Component.extend({
 
         historyNext() {
             window.history.go(+1)
+        },
+
+        openDash() {
+            Ember.$('#dash')
+              .modal('show')
+            ;
         }
     }
 });

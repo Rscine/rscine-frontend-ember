@@ -1,5 +1,15 @@
 {{!-- Menu principal --}}
-<div class="ui vertical fixed attached inverted icon menu stackable" id="left-menu">
-    {{#link-to 'index' class="item"}}<i class="home icon"></i>{{/link-to}}
-    {{#link-to 'offer.list' class="item"}}<i class="idea icon"></i>{{/link-to}}
-</div>
+{{#ui-modal name="dash" class="basic" id="dash"}}
+
+    <div class="ui grid four column">
+        {{#link-to 'index' class="ui icon inverted header column"}}
+            <i class="home icon"></i>
+            Home
+        {{/link-to}}
+
+        {{#link-to 'offer.list' class="ui inverted icon header column"}}
+            <i class="idea icon"></i>
+            Offers
+        {{/link-to}}
+    </div>
+{{/ui-modal}}
