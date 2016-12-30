@@ -6,16 +6,14 @@
             <form {{action 'authenticate' on="submit"}} class="ui large form column">
               <div class="two fields">
                   <div class="field">
-                      <label for="login">Login</label>
                       <div class="ui left icon input">
-                          {{input label="Login" type="text" name="login" value=(mut login)}}
+                          {{input label="Login" placeholder="Login" type="text" name="login" value=(mut login)}}
                           <i class="user icon"></i>
                       </div>
                   </div>
                   <div class="field">
-                      <label for="password">Password</label>
                       <div class="ui left icon input">
-                          {{input label="Password" type="password" name="password" value=(mut password)}}
+                          {{input label="Password" placeholder="Password" type="password" name="password" value=(mut password)}}
                           <i class="lock icon"></i>
                       </div>
                   </div>
