@@ -1,19 +1,10 @@
 // Fix for Roboto font path
 $roboto-font-path: '../assets/';
 
-body, html {
-    overflow: hidden;
-}
-
 #app-content {
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
-#top-menu {
-    padding-left: 50px;
-}
-
-#wrapper {
-    position: relative;
-    overflow: auto;
+#left-menu {
+    padding-top: 45px;
 }
