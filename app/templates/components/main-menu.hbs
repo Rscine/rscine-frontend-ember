@@ -1,13 +1,14 @@
 {{!-- Topbar --}}
-<div class="ui top inverted attached menu stackable">
-    <a {{action "openSideBar"}} class="item"><i class="list layout icon"></i></a>
+<div class="ui top inverted attached menu stackable" id="top-menu">
+    <a {{action "historyPrevious"}} class="item"><i class="angle left icon"></i></a>
+    <a {{action "historyNext"}} class="item"><i class="angle right icon"></i></a>
+    <div class="item">
+      <div class="ui inverted transparent icon input">
+        <input type="text" placeholder="Search...">
+        <i class="search link icon"></i>
+      </div>
+    </div>
     <div class="right menu">
         {{profile-manager}}
     </div>
-</div>
-
-{{!-- Menu principal --}}
-<div class="ui left demo vertical inverted sidebar menu">
-    {{#link-to 'index' class="item"}}<i class="home icon"></i>Home{{/link-to}}
-    {{#link-to 'offer.list' class="item"}}<i class="idea icon"></i>Offers{{/link-to}}
 </div>
