@@ -1,4 +1,6 @@
 {{#if session.isAuthenticated}}
+    <a {{action "historyPrevious"}} class="item"><i class="alarm icon"></i></a>
+
     {{#ui-dropdown class="simple dropdown item"}}
         <i class="user icon"></i>
         <i class="dropdown icon"></i>
